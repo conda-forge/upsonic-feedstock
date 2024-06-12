@@ -1,5 +1,5 @@
 {% set name = "upsonic" %}
-{% set version = "0.28.2" %}
+{% set version = "0.28.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/upsonic-{{ version }}.tar.gz
-  sha256: 0d0c0ff4628ac6e677f08f7a0e7b5860e9fed5370f9003bf8a246d05f182d2cd
+  sha256: 6d4c4df2c4bab83e9612c443a7548e4a6ac6423428678091f92afcf6e8aa496a
 
 build:
   entry_points:
     - upsonic=upsonic.remote.interface:Upsonic_CLI
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -27,7 +27,7 @@ requirements:
     - rich >=13.5.2
     - cryptography =41.0.3
     - dill =0.3.8
-    - requests =2.28.2
+    - requests
     - python-dotenv =1.0.0
     - cloudpickle =3.0.0
     - memory_profiler =0.61.0
