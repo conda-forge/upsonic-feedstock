@@ -22,7 +22,7 @@ requirements:
     - pip
   run:
     - python >=3.0
-    - fire ==0.5.0mgzip,==0.2.1rich,>=13.5.2cryptography,==41.0.3dill,==0.3.8requestspython-dotenv,==1.0.0cloudpickle,==3.0.0memory-profiler,==0.61.0langchain_openai
+    - fire =0.5.0
     - mgzip =0.2.1
     - rich >=13.5.2
     - cryptography =41.0.3
