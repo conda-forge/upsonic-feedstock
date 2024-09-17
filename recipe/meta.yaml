@@ -1,5 +1,5 @@
 {% set name = "upsonic" %}
-{% set version = "0.28.4" %}
+{% set version = "0.30.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/upsonic-{{ version }}.tar.gz
-  sha256: 6d4c4df2c4bab83e9612c443a7548e4a6ac6423428678091f92afcf6e8aa496a
+  sha256: 0735f4818659b364cad57eb748b080a8193bbe9efabf684d8e866a2d908f88a0
 
 build:
   entry_points:
