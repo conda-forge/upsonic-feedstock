@@ -1,5 +1,5 @@
 {% set name = "upsonic" %}
-{% set version = "0.30.0" %}
+{% set version = "0.30.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/upsonic-{{ version }}.tar.gz
-  sha256: 0735f4818659b364cad57eb748b080a8193bbe9efabf684d8e866a2d908f88a0
+  sha256: 33a684806f50cafd3d827dc2faf4384d9d95c0cad740754ade0a4a857407e070
 
 build:
   entry_points:
@@ -24,14 +24,14 @@ requirements:
     - python >=3.0
     - fire =0.5.0
     - mgzip =0.2.1
-    - rich >=13.5.2
-    - cryptography =41.0.3
-    - dill =0.3.8
+    - cryptography
+    - dill
     - requests
-    - python-dotenv =1.0.0
-    - cloudpickle =3.0.0
+    - python-dotenv
+    - cloudpickle
     - memory_profiler =0.61.0
-    - langchain-openai
+    - colorama
+    - termcolor
 
 test:
   imports:
