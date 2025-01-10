@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/upsonic-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/upsonic-{{ version }}.tar.gz
   sha256: 0735f4818659b364cad57eb748b080a8193bbe9efabf684d8e866a2d908f88a0
 
 build:
@@ -14,14 +14,14 @@ build:
     - upsonic=upsonic.remote.interface:Upsonic_CLI
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.0
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.0
+    - python >={{ python_min }}
     - fire =0.5.0
     - mgzip =0.2.1
     - rich >=13.5.2
@@ -41,6 +41,7 @@ test:
     - upsonic --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/Upsonic/Upsonic
