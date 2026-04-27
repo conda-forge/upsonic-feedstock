@@ -1,0 +1,62 @@
+schema_version: 1
+
+context:
+  name: upsonic
+  version: "0.30.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/upsonic-${{ version }}.tar.gz
+  sha256: 0735f4818659b364cad57eb748b080a8193bbe9efabf684d8e866a2d908f88a0
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - upsonic=upsonic.remote.interface:Upsonic_CLI
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - fire =0.5.0
+    - mgzip =0.2.1
+    - rich >=13.5.2
+    - cryptography =41.0.3
+    - dill =0.3.8
+    - requests
+    - python-dotenv =1.0.0
+    - cloudpickle =3.0.0
+    - memory_profiler =0.61.0
+    - langchain-openai
+
+tests:
+  - python:
+      imports:
+        - upsonic
+      pip_check: true
+      python_version: ${{ python_min }}
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - upsonic --help
+
+about:
+  summary: Magic Cloud Layer
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/Upsonic/Upsonic
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
